@@ -27,6 +27,16 @@ const App = props => {
     })
   }
 
+  const nameChangedHandler = (event) => {
+    setPersonsState({
+      persons:[
+        {name: 'Max', age: 28},
+        {name: event.target.value, age: 29},
+        {name: 'Stephanie', age: 26}
+    ] 
+    })
+  }
+
   return (
     <div className="App">
      <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
@@ -39,7 +49,8 @@ const App = props => {
      name={personsState.persons[1].name} 
      age={personsState.persons[1].age}
       // Recommended
-     click={switchNameHandler.bind(this, 'Harry!')}> My hobbies: Racing </Person>
+     click={switchNameHandler.bind(this, 'Harry!')}
+     changed={nameChangedHandler}> My hobbies: Racing </Person>
      <Person 
      name={personsState.persons[2].name}
       age={personsState.persons[2].age} />
