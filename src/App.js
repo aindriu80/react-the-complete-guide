@@ -15,12 +15,12 @@ const App = props => {
 
   console.log(personsState, otherState);
 
-  const switchNameHandler = () => {
+  const switchNameHandler = (newName) => {
     // console.log('Was clicked!');
     // Dont do this: personsState.persons[0].name = "Maximilian";
     setPersonsState({
       persons:[
-        {name: 'Maximilian', age: 28},
+        {name: newName, age: 28},
         {name: 'Manu', age: 29},
         {name: 'Stephanie', age: 27}
     ] 
@@ -30,10 +30,19 @@ const App = props => {
   return (
     <div className="App">
      <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
-     <button onClick={switchNameHandler}>Switch Name</button>
-     <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
-     <Person name={personsState.persons[1].name} age={personsState.persons[1].age}> My hobbies: Racing </Person>
-     <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
+     {/* Not recommended - inefficent */}
+     <button onClick={() => switchNameHandler('Maxitrillion!!')}>Switch Name</button>
+     <Person 
+     name={personsState.persons[0].name} 
+     age={personsState.persons[0].age} />
+     <Person 
+     name={personsState.persons[1].name} 
+     age={personsState.persons[1].age}
+      // Recommended
+     click={switchNameHandler.bind(this, 'Harry!')}> My hobbies: Racing </Person>
+     <Person 
+     name={personsState.persons[2].name}
+      age={personsState.persons[2].age} />
     </div>
   );
   // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Does this work now?'));  
