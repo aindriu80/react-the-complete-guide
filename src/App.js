@@ -38,22 +38,33 @@ const App = props => {
     })
   }
 
-  return (
-    <div className="App">
-     <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
-     {/* Not recommended - inefficent */}
-     <button onClick={() => switchNameHandler('Maxitrillion!!')}>Switch Name</button>
-     <Person 
-     name={personsState.persons[0].name} 
-     age={personsState.persons[0].age} />
-     <Person 
-     name={personsState.persons[1].name} 
-     age={personsState.persons[1].age}
-      // Recommended
-     click={switchNameHandler.bind(this, 'Harry!')}
-     changed={nameChangedHandler}> My hobbies: Racing </Person>
-     <Person 
-     name={personsState.persons[2].name}
+  
+    var style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
+   
+    
+    return (
+      <div className="App">
+      <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
+      {/* Not recommended - inefficent */}
+      <button style={style} onClick={() => switchNameHandler('Maxitrillion!!')}>Switch Name</button>
+      <Person 
+      name={personsState.persons[0].name} 
+      age={personsState.persons[0].age} />
+      <Person 
+      name={personsState.persons[1].name} 
+      age={personsState.persons[1].age}
+        // Recommended
+      click={switchNameHandler.bind(this, 'Harry!')}
+      changed={nameChangedHandler}> My hobbies: Racing </Person>
+      <Person 
+      name={personsState.persons[2].name}
       age={personsState.persons[2].age} />
     </div>
   );

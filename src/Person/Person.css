@@ -6,3 +6,11 @@
     padding: 16px;
     text-align: center;
 }
+
+.style{
+    backgroundColor:'white';
+    font: 'inherit';
+    border: '1px solid blue';
+    padding: '8px';
+    cursor: 'pointer';
+  }
