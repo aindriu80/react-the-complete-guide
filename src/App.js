@@ -51,16 +51,11 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer'
-    };
+    };  
+    let persons = null;
 
-   
-    
-    return (
-      <div className="App">
-      <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
-      {/* Not recommended - inefficent */}
-      <button style={style} onClick={this.togglePersonsHandler}>Switch Name</button>
-      { this.state.showPersons ? 
+    if (this.state.showPersons) {
+      persons= (
         <div>
         <Person
             name={this.state.persons[0].name}
@@ -73,9 +68,15 @@ class App extends Component {
           <Person
             name={this.state.persons[2].name}
             age={this.state.persons[2].age} />
-        </div> : null
-      }
-     
+        </div>
+      );
+    }
+    return (
+      <div className="App">
+      <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
+      {/* Not recommended - inefficent */}
+      <button style={style} onClick={this.togglePersonsHandler}>Switch Name</button>
+     {persons} 
     </div>
   );
   // return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Does this work now?'));  
