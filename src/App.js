@@ -49,9 +49,10 @@ class App extends Component {
 
   render () {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color:'white',
       font: 'inherit',
-      border: '1px solid blue',
+      border: '1px solid grey',
       padding: '8px',
       cursor: 'pointer'
     };  
@@ -70,12 +71,13 @@ class App extends Component {
           })}       
         </div>
       );
+      style.backgroundColor = 'red';
     }
     return (
       <div className="App">
       <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
       {/* Not recommended - inefficent */}
-      <button style={style} onClick={this.togglePersonsHandler}>Switch Name</button>
+      <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
      {persons} 
     </div>
   );
